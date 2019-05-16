@@ -1,5 +1,7 @@
+$color_main_light: #D6C0BE;
+
 .features {
-  background-color: #f4f4f4;
+  background-color: $color_main_light;
   padding: 90px 0;
   &-title {
     font-weight: bold;
