@@ -8,7 +8,7 @@ import '../../../sass/style.scss';
 
 const TemplateWrapper = ({ children }) => (
     <div>
-        <Helmet title="Gatsby React Boilerplate" />
+        <Helmet title="DIGI-TAILS Product Request" />
         <Header />
         {children}
         <Footer />

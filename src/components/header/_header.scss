@@ -1,10 +1,20 @@
 .header {
   width: 100%;
+  background-color: #FD3C3C;
+  color: white;
   &-content {
     height: 120px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  &-logo {
+    @media only screen and (max-width: 640px) {
+     font-size: 15px;
+    }
+    @media screen and (device-aspect-ratio: 40/71) {
+     font-size: 13px;
+    }
   }
   &-nav-list {
     margin: 0;
@@ -15,6 +25,18 @@
     justify-content: space-between;
     &-item {
       margin-right: 10px;
+      @media only screen and (max-width: 640px) {
+        font-size: 15px;
+       }
+       @media screen and (device-aspect-ratio: 40/71) {
+        font-size: 13px;
+       }
+       &-anchor {
+         color: white;
+           &:hover {
+            color: black;
+           }
+       }
     }
   }
 }

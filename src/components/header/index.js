@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './_header.scss';
 
 const Header = () => (
@@ -8,14 +7,21 @@ const Header = () => (
             <div className="row">
                 <div className="col-12">
                     <div className="header-content">
-                        <span className="header-logo">Gatsby React Boilerplate</span>
+                        {/* <span className="header-logo">Gatsby React Boilerplate</span> */}
+                        <svg viewBox="0 0 28.3 28.3" fill="white">
+                            <use xlinkHref="/assets/digi.svg#digi" />
+                        </svg>
                         <nav className="header-nav">
                             <ul className="header-nav-list">
                                 <li className="header-nav-list-item">
-                                    <a href="#features">Features</a>
+                                    <a href="#features" className="header-nav-list-item-anchor">
+                                        Features
+                                    </a>
                                 </li>
                                 <li className="header-nav-list-item">
-                                    <a href="#howto">How To</a>
+                                    <a href="#howto" className="header-nav-list-item-anchor">
+                                        How To
+                                    </a>
                                 </li>
                             </ul>
                         </nav>

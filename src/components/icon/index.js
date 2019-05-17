@@ -13,9 +13,9 @@ const Icon = (props) => (
 
 Icon.propTypes = {
     viewBox: PropTypes.string,
-    id: PropTypes.string,
-    width: PropTypes.oneOf(['number', 'string']),
-    height: PropTypes.oneOf(['number', 'string']),
+    id: PropTypes.object,
+    width: PropTypes.string,
+    height: PropTypes.string,
     fill: PropTypes.string,
 };
 
