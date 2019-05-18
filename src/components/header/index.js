@@ -7,8 +7,8 @@ const Header = () => (
             <div className="row">
                 <div className="col-12">
                     <div className="header-content">
-                        <svg viewBox="0 0 100 100" fill="white" className="header-svg" width="30%" height="100%" color="white" >
-                            <use xlinkHref="/digitails_logo.svg#digi" className="header-svg-use" />
+                        <svg viewBox="0 0 100 100" width="300" height="100" >
+                            <use xlinkHref="./digitails_logo.svg#digi" className="header-svg-use" />
                         </svg>
                         <nav className="header-nav">
                             <ul className="header-nav-list">
