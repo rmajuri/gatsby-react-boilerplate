@@ -38,5 +38,14 @@
            }
        }
     }
+    &-svg {
+      z-index: 1000;
+      fill: white;
+      display: flex;
+      justify-content: flex-start;
+      &-use {
+        padding: 0;
+      }
+    }
   }
 }
