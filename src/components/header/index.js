@@ -9,7 +9,7 @@ const Header = () => (
                 <div className="col-12">
                     <div className="header-content">
                         {/* viewBox="0 0 100 100" */}
-                        <svg width="30%" height="100%" >
+                        <svg className="header-svg">
                             <use xlinkHref={ `${DigiLogo}#digi` } className="header-svg-use" />
                         </svg>
                         <nav className="header-nav">
