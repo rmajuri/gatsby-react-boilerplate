@@ -8,7 +8,6 @@ const Header = () => (
             <div className="row">
                 <div className="col-12">
                     <div className="header-content">
-                        {/* viewBox="0 0 100 100" */}
                         <svg className="header-svg">
                             <use xlinkHref={ `${DigiLogo}#digi` } className="header-svg-use" />
                         </svg>

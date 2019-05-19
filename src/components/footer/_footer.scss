@@ -1,10 +1,17 @@
 .footer {
   width: 100%;
-  background-color: #4D463F;
-  &-content {
-    height: 120px;
+  background-color: #4d463f;
+  &-content-left {
+    height: 150px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+  }
+  &-svg {
+    height: 100%;
+    width: 80%;
+    @media only screen and (max-width: 640px) {
+      height: 30%;
+      width: 100%;
+     }
   }
 }
