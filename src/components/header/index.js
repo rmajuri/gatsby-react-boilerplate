@@ -1,5 +1,6 @@
 import React from 'react';
 import './_header.scss';
+import DigiLogo from './digitails_logo.svg';
 
 const Header = () => (
     <header className="header">
@@ -7,8 +8,9 @@ const Header = () => (
             <div className="row">
                 <div className="col-12">
                     <div className="header-content">
-                        <svg viewBox="0 0 100 100" width="300" height="100" >
-                            <use xlinkHref="./digitails_logo.svg#digi" className="header-svg-use" />
+                        {/* viewBox="0 0 100 100" */}
+                        <svg width="30%" height="100%" >
+                            <use xlinkHref={ `${DigiLogo}#digi` } className="header-svg-use" />
                         </svg>
                         <nav className="header-nav">
                             <ul className="header-nav-list">
