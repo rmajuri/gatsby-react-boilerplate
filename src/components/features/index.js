@@ -1,5 +1,6 @@
 import React from 'react';
 import './_features.scss';
+import RequestForm from '../request-form';
 
 import { StaticQuery, graphql } from 'gatsby';
 
@@ -37,6 +38,8 @@ const Features = () => (
                             </ul>
                         </div>
                     </div>
+
+                    <RequestForm />
                 </div>
             </section>
         ) } />

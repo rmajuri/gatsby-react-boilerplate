@@ -11,18 +11,18 @@ const Footer = () => (
                         <svg className="footer-svg">
                             <use xlinkHref={ `${DigiLogo}#digi` } className="footer-svg-use" />
                         </svg>
-                        <p style={ { color: 'white' } }>Cats cats cats</p>
+                        <p className="footer-text-copyright">DIGITAILS &copy; 2019</p>
 
                     </div>
                 </div>
                 <div className="col-4">
                     <div className="footer-content-center">
-                        <p style={ { color: 'white' } }>Cats cats cats</p>
+                        <p className="footer-text">Cats cats cats</p>
                     </div>
                 </div>
                 <div className="col-4">
                     <div className="footer-content-right">
-                        <p style={ { color: 'white' } }>Cats cats cats</p>
+                        <p className="footer-text">Cats cats cats</p>
                     </div>
                 </div>
             </div>
