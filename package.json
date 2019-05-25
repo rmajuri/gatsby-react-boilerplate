@@ -26,6 +26,7 @@
     "morgan": "^1.9.1",
     "pg": "^7.11.0",
     "react-helmet": "^5.2.0",
+    "reactstrap": "^8.0.0",
     "sequelize": "^5.8.6",
     "serve-static": "^1.13.2",
     "yup": "^0.27.0"

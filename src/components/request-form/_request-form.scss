@@ -1,3 +1,17 @@
 .top-buffer {
   margin-top: 20px;
+  &-form {
+    margin-top: 10px;
+  }
+}
+
+.form {
+  &-container {
+    margin: 5px 0;
+  }
+}
+
+.field-error {
+  color: #FD3C3C;
+  font-size: 12px;
 }
