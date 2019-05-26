@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import './_request-form.scss';
 import * as Yup from 'yup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Label, FormGroup } from 'reactstrap';
 import CustomInput from './CustomInput';
+import PropTypes from 'prop-types';
 
 const initialState = {
     make: '',
@@ -14,7 +15,7 @@ const initialState = {
     email: '',
 };
 
-const RequestForm = () => (
+const RequestForm = ({ labels }) => (
     <Fragment>
         <Formik initialValues={ initialState }
             onSubmit={ (values) => {
@@ -37,37 +38,37 @@ const RequestForm = () => (
                         <Form>
 
                             <FormGroup>
-                                <Label for="make">Make</Label>
+                                <Label for="make">{labels.make}</Label>
                                 <Field name="make" type="text" component={ CustomInput } />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="model">Model</Label>
+                                <Label for="model">{labels.model}</Label>
                                 <Field name="model" type="text" component={ CustomInput } />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="year">Year</Label>
-                                <Field name="year" type="text" component={ CustomInput } />
+                                <Label for="year">{labels.year}</Label>
+                                <Field name="year" type="number" component={ CustomInput } />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="name">Name</Label>
+                                <Label for="name">{labels.name}</Label>
                                 <Field name="name" type="text" component={ CustomInput } />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="year">Year</Label>
-                                <Field name="year" type="text" component={ CustomInput } />
+                                <Label for="email">{labels.email}</Label>
+                                <Field name="email" type="email" component={ CustomInput } />
                             </FormGroup>
 
                             <div className="row top-buffer">
                                 <div className="col-md-2 form-container">
-                                    <Button color="secondary" type="reset" onClick={ handleReset }>Reset</Button>
+                                    <Button color="secondary" type="reset" onClick={ handleReset }>{labels.reset}</Button>
                                 </div>
 
                                 <div className="col-md-2 form-container">
-                                    <Button color="success" type="submit" disabled={ isSubmitting }>Submit</Button>
+                                    <Button color="success" type="submit" disabled={ isSubmitting }>{labels.submit}</Button>
                                 </div>
                             </div>
 
@@ -80,3 +81,7 @@ const RequestForm = () => (
 );
 
 export default RequestForm;
+
+RequestForm.propTypes = {
+    labels: PropTypes.object,
+};

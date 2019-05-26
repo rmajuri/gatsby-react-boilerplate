@@ -1,33 +1,53 @@
 import React from 'react';
 import './_footer.scss';
 import DigiLogo from './digitails_logo.svg';
+import { StaticQuery, graphql } from 'gatsby';
 
 const Footer = () => (
-    <footer className="footer">
-        <div className="container">
-            <div className="row">
-                <div className="col-4">
-                    <div className="footer-content-left">
-                        <svg className="footer-svg">
-                            <use xlinkHref={ `${DigiLogo}#digi` } className="footer-svg-use" />
-                        </svg>
-                        <p className="footer-text-copyright">DIGITAILS &copy; 2019</p>
 
+    <StaticQuery
+
+        query={ graphql`
+          query FooterQuery {
+            allDataJson {
+              edges {
+                node {
+                  footer { address, email, phone}
+                }
+              }
+            }
+          }
+        ` }
+
+        render={ (data) => (<footer className="footer">
+            <div className="container">
+                <div className="row">
+                    <div className="col-4">
+                        <div className="footer-left">
+                            <svg className="footer-svg">
+                                <use xlinkHref={ `${DigiLogo}#digi` } className="footer-svg-use" />
+                            </svg>
+                            <p className="footer-text-copyright">DIGI-TAILS &copy; 2019</p>
+
+                        </div>
                     </div>
-                </div>
-                <div className="col-4">
-                    <div className="footer-content-center">
-                        <p className="footer-text">Cats cats cats</p>
+                    <div className="col-4 d-flex footer-center-container">
+                        <div className="footer-center">
+                            <div className="address-container">
+                                {data.allDataJson.edges[0].node.footer.address.map((address) => <p className="address" key={ address }>{address}</p>)}
+                            </div>
+                            <p>{data.allDataJson.edges[0].node.footer.email}</p>
+                            <p>{data.allDataJson.edges[0].node.footer.phone}</p>
+                        </div>
                     </div>
-                </div>
-                <div className="col-4">
-                    <div className="footer-content-right">
-                        <p className="footer-text">Cats cats cats</p>
+                    <div className="col-4">
+                        <div className="footer-right">
+                            <p>Cats cats cats</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>) } />
 );
 
 export default Footer;

@@ -1,30 +1,18 @@
 {
-    "features": [
-        {
-            "title": "Now runs gatsby 2!"
-        },
-        {
-            "title": "Basic configuration and folder structure"
-        },
-        {
-            "title": "Uses postcss and sass with autoprefixer"
-        },
-        {
-            "title": "Uses Bootstrap 4"
-        },
-        {
-            "title": "Leaves the styling to you"
-        },
-        {
-            "title": "Uses data from local json files"
-        },
-        {
-            "title": "Contains Node.js server code for easy, secure, and fast hosting"
-        },
-        {
-            "title": "SVG sprites: Add your icons in `components/icon` as .icon files and use them."
-        }
-    ],
+    "form": {
+            "make": "Make",
+            "model": "Model",
+            "year": "Year",
+            "name": "Name",
+            "email": "Email",
+            "reset": "Reset",
+            "submit": "Submit"
+      },
+      "footer": {
+        "address": ["Spaghetti Engineering", "150 Cooper Road, C-7", "West Berlin, NJ 08091"],
+        "email": "info@digi-tails.com",
+        "phone": "856-719-9989"
+      },
     "howTo": [
         {
             "title": "Prepare a coffee"
