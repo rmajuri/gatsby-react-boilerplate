@@ -5,9 +5,20 @@
   color: white;
   &-center {
     display: flex;
-    justify-content: center;
+    // justify-content: flex-end;
     flex-direction: column;
     flex-wrap: wrap;
+    margin-top: 55px;
+    &-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &-right {
+    display: flex;
+    flex-direction: column;
+    margin-top: 55px;
+    // justify-content: center;
     &-container {
       display: flex;
       justify-content: center;
@@ -21,8 +32,8 @@
       width: 100%;
      }
   }
-  &-text-copyright {
-    font-size: 10px;
+  &-container {
+    height: 250px;
   }
 }
 
@@ -32,3 +43,4 @@
     margin-bottom: 10px;
   }
 }
+

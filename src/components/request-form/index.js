@@ -38,27 +38,27 @@ const RequestForm = ({ labels }) => (
                         <Form>
 
                             <FormGroup>
-                                <Label for="make">{labels.make}</Label>
+                                <Label className="input-label" for="make">{labels.make}</Label>
                                 <Field name="make" type="text" component={ CustomInput } />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="model">{labels.model}</Label>
+                                <Label className="input-label" for="model">{labels.model}</Label>
                                 <Field name="model" type="text" component={ CustomInput } />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="year">{labels.year}</Label>
+                                <Label className="input-label" for="year">{labels.year}</Label>
                                 <Field name="year" type="number" component={ CustomInput } />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="name">{labels.name}</Label>
+                                <Label className="input-label" for="name">{labels.name}</Label>
                                 <Field name="name" type="text" component={ CustomInput } />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="email">{labels.email}</Label>
+                                <Label className="input-label" for="email">{labels.email}</Label>
                                 <Field name="email" type="email" component={ CustomInput } />
                             </FormGroup>
 

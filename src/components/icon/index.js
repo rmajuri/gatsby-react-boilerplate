@@ -13,7 +13,7 @@ const Icon = (props) => (
 
 Icon.propTypes = {
     viewBox: PropTypes.string,
-    id: PropTypes.object,
+    id: PropTypes.string,
     width: PropTypes.string,
     height: PropTypes.string,
     fill: PropTypes.string,

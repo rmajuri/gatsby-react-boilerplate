@@ -31,6 +31,10 @@ module.exports = {
                             'latin-ext',
                         ],
                     },
+                    {
+                        family: 'Montserrat',
+                        variants: ['200', '300', '400', '500', '700'],
+                    },
                 ],
             },
         },

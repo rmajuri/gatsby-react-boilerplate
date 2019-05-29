@@ -11,7 +11,8 @@
       "footer": {
         "address": ["Spaghetti Engineering", "150 Cooper Road, C-7", "West Berlin, NJ 08091"],
         "email": "info@digi-tails.com",
-        "phone": "856-719-9989"
+        "phone": "856-719-9989",
+        "social": ["DIGI-TAILS.com", "Instagram", "Facebook", "YouTube"]
       },
     "howTo": [
         {
