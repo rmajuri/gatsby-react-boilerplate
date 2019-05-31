@@ -1,6 +1,12 @@
+$color_main_dark: #FD3C3C;
+$color_main_light: #D6C0BE;
+$color_main_ui: #F37D92;
+$color_text_dark: #4D463F;
+$color_background_light_gray: rgb(240, 236, 236);
+
 .header {
   width: 100%;
-  background-color: #fd3c3c;
+  background-color: $color_main_dark;
   color: white;
   &-content {
     height: 120px;
@@ -32,9 +38,9 @@
         font-size: 13px;
       }
       &-anchor {
-        color:  rgb(240, 236, 236);
+        color:  $color_background_light_gray;
         &:hover {
-          color: #4d463f;
+          color: $color_text_dark;
         }
       }
     }
