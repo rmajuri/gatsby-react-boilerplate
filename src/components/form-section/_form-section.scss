@@ -1,0 +1,53 @@
+$color_main_dark: #FD3C3C;
+$color_main_light: #D6C0BE;
+$color_main_ui: #F37D92;
+$color_text_dark: #4D463F;
+$color_background_light_gray: rgb(240, 236, 236);
+
+.form-section {
+  background-color: rgb(240, 236, 236);
+  padding: 90px 0;
+  &-title {
+    font-weight: bold;
+  }
+}
+
+.form-text {
+  &-header {
+    font-weight: 500;
+    @media only screen and (max-width: 800px) {
+      font-size: 30px;
+    }
+    @media only screen and (max-width: 640px) {
+      font-size: 25px;
+    }
+    @media screen and (device-aspect-ratio: 40/71) {
+      font-size: 20px;
+    }
+  }
+  &-subheader {
+    font-weight: 400;
+  }
+  &-disclaimer {
+    font-weight: 400;
+  }
+
+}
+
+.row-buffer {
+  margin-top: 30px;
+  &-form {
+    margin-top: 50px;
+  }
+}
+
+.link {
+  color: $color_text_dark;
+  text-decoration: underline;
+  &:hover {
+    color: $color_main_dark;
+  }
+  &:active {
+    color: $color_background_light_gray;
+  }
+}

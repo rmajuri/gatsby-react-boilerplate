@@ -1,13 +1,13 @@
 import React from 'react';
-import Features from '../components/features';
-import HowTo from '../components/how-to';
+import FormSection from '../components/form-section';
+import RequestStats from '../components/request-stats';
 import Layout from '../components/layout';
 
 const IndexPage = () => (
     <Layout>
         <main>
-            <Features />
-            <HowTo />
+            <FormSection />
+            <RequestStats />
         </main>
     </Layout>
 );

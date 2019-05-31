@@ -15,9 +15,6 @@ $color_background_light_gray: rgb(240, 236, 236);
     justify-content: space-between;
   }
   &-logo {
-    @media only screen and (max-width: 640px) {
-      font-size: 15px;
-    }
     @media screen and (device-aspect-ratio: 40/71) {
       font-size: 13px;
     }
@@ -27,15 +24,21 @@ $color_background_light_gray: rgb(240, 236, 236);
     padding: 0;
     list-style-type: none;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-content: center;
     &-item {
-      margin-right: 10px;
-      @media only screen and (max-width: 640px) {
+      text-align: center;
+      margin-right: 15px;
+      @media only screen and (max-width: 800px) {
         font-size: 15px;
       }
-      @media screen and (device-aspect-ratio: 40/71) {
+      @media only screen and (max-width: 640px) {
         font-size: 13px;
+        margin-right: 0;
+        width: 90px;
+      }
+      @media screen and (device-aspect-ratio: 40/71) {
+        font-size: 12px;
+        width: 80px;
       }
       &-anchor {
         color:  $color_background_light_gray;

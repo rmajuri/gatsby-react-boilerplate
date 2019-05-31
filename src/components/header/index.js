@@ -14,13 +14,13 @@ const Header = () => (
                         <nav className="header-nav">
                             <ul className="header-nav-list">
                                 <li className="header-nav-list-item">
-                                    <a href="#features" className="header-nav-list-item-anchor">
-                                        Features
+                                    <a href="#form-section" className="header-nav-list-item-anchor">
+                                        Make Request
                                     </a>
                                 </li>
                                 <li className="header-nav-list-item">
                                     <a href="#howto" className="header-nav-list-item-anchor">
-                                        How To
+                                        See Other Requests
                                     </a>
                                 </li>
                             </ul>
