@@ -7,7 +7,6 @@
 }
 
 .list-section {
-  border: 1px solid black;
   @media only screen and (max-width: 640px) {
     display: flex;
     justify-content: center;
@@ -18,9 +17,7 @@
 
 .lists-container {
   display: flex;
-
   justify-content: center;
-  border: 1px solid black;
   margin-top: 30px;
   width: 100%;
   @media only screen and (max-width: 640px) {
@@ -30,7 +27,6 @@
 
 .list {
   color: rgb(114, 111, 111);
-  border: 1px solid black;
   font-size: 15px;
   width: 80%;
   column-count: 3;
