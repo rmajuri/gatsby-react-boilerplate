@@ -27,8 +27,31 @@ const RequestStats = () => (
                             <h1 className="request-stats-title">See what others are requesting.</h1>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="offset-1" />
+                    <div className="row list-section">
+                        <div className="offset-1 lists-container">
+                            <ol className="list">
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                                <li>1965 Ford Mustang</li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </section>
