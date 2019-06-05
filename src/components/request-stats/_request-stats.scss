@@ -7,6 +7,7 @@
 }
 
 .list-section {
+  border: 1px solid black;
   @media only screen and (max-width: 640px) {
     display: flex;
     justify-content: center;
@@ -16,18 +17,28 @@
 
 
 .lists-container {
+  display: flex;
+
+  justify-content: center;
+  border: 1px solid black;
   margin-top: 30px;
   width: 100%;
   @media only screen and (max-width: 640px) {
-    width: 200px;
+    width: 400px;
    }
 }
 
 .list {
+  color: rgb(114, 111, 111);
+  border: 1px solid black;
   font-size: 15px;
-  width: 100%;
-  column-count: 2;
+  width: 80%;
+  column-count: 3;
   column-width: 200px;
+  @media only screen and (max-width: 640px) {
+    width: 200px;
+    width: 100%;
+   }
 }
 
 .list li {

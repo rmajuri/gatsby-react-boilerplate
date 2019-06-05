@@ -19,8 +19,8 @@ const Header = () => (
                                     </a>
                                 </li>
                                 <li className="header-nav-list-item">
-                                    <a href="#howto" className="header-nav-list-item-anchor">
-                                        See Other Requests
+                                    <a href="#request-stats" className="header-nav-list-item-anchor">
+                                      Top 20
                                     </a>
                                 </li>
                             </ul>
