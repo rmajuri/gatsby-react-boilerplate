@@ -1,15 +1,15 @@
-"use strict";
+const express = require('express');
 
-var express = require("express");
-var debug = require("debug")("api");
-var app = new express();
+const debug = require('debug')('api');
 
-// express configs
-require("./config/express")(app);
+const app = new express();
 
-// start app
-app.listen(process.env.PORT || 8080, error => {
-  if (!error) {
-    debug(`📡  Running on port: ${process.env.PORT || 8080}`);
-  }
+// Express configs
+require('./config/express')(app);
+
+// Start app
+app.listen(process.env.PORT || 8080, (error) => {
+    if (!error) {
+        debug(`📡  Running on port: ${process.env.PORT || 8080}`);
+    }
 });

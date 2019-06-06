@@ -1,5 +1,5 @@
 {
-  "name": "DIGI-TAILS_Product_Request",
+  "name": "request",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,8 @@
     "gh-pages": "gatsby build --prefix-paths && gh-pages -d public",
     "lint": "eslint src --fix",
     "dev": "(shx --silent rm -rf public || shx true) && gatsby develop",
-    "server": "cross-env NODE_ENV=development DEBUG=api nodemon server.js"
+    "server": "cross-env NODE_ENV=development DEBUG=api nodemon server.js",
+    "seed": "node script/seed.js"
   },
   "author": "Prototype Interactive",
   "license": "MIT",

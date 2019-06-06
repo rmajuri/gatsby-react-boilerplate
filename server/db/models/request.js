@@ -1,5 +1,5 @@
-import Sequelize from 'sequelize';
-import db from '../db';
+const Sequelize = require('sequelize');
+const db = require('../db');
 
 const Request = db.define('request', {
     date: {
@@ -26,9 +26,6 @@ const Request = db.define('request', {
     lastContact: {
         type: Sequelize.STRING,
     },
-    remarks: {
-        type: Sequelize.TEXT,
-    },
 });
 
-export default Request;
+module.exports = Request;

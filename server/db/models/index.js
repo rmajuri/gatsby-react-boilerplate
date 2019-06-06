@@ -1,4 +1,5 @@
-import Request from './request';
-import db from '../db';
+const Request = require('./request');
 
-export { db, Request };
+const db = require('../db');
+
+module.exports = { db, Request };
