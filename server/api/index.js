@@ -14,6 +14,7 @@ router.use((req, res, next) => {
 });
 
 router.use('/request', require('./request'));
+router.use('/vehicle', require('./vehicle'));
 
 router.use((req, res, next) => {
     const error = new Error('Not Found');
