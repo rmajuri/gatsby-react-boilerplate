@@ -18,8 +18,26 @@ const initialState = {
 const RequestForm = ({ labels }) => (
     <Fragment>
         <Formik initialValues={ initialState }
-            onSubmit={ (values) => {
-                console.log(values);
+            onSubmit={ (values, actions) => {
+                const requestPost = {
+                    ...values,
+                    date: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+                    year: String(values.year),
+                };
+
+                fetch('http://localhost:8080/api/request', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestPost),
+                })
+                .then((res) => res.json())
+                .then((data) => console.log(data))
+                .catch((err) => console.error(err));
+
+                actions.setSubmitting(false);
+                actions.resetForm();
             } }
             validationSchema={ Yup.object().shape({
                 make: Yup.string().required('Required'),
@@ -85,3 +103,4 @@ export default RequestForm;
 RequestForm.propTypes = {
     labels: PropTypes.object,
 };
+

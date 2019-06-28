@@ -4,6 +4,11 @@ const debug = require('debug')('api');
 
 const app = new express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api', require('./api'));
+
 // Express configs
 require('./config/express')(app);
 

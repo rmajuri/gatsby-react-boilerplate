@@ -1,7 +1,5 @@
 const debug = require('debug')('api');
 
-const express = require('express');
-
 const serveStatic = require('serve-static');
 
 const compression = require('compression');
