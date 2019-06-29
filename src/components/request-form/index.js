@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Label, FormGroup } from 'reactstrap';
 import CustomInput from './CustomInput';
+import CustomSelectInput from './CustomSelectInput';
 import PropTypes from 'prop-types';
 
 const initialState = {
@@ -15,17 +16,24 @@ const initialState = {
     email: '',
 };
 
+Yup.addMethod(Yup.string, 'makeSelected', function () {
+    return this.test({
+        name: 'make',
+        message: 'You must select a vehicle make.',
+        test: (value) => {
+            try {
+                return value !== '--';
+            } catch (error) {
+                return false;
+            }
+        },
+    });
+});
+
 const RequestForm = ({ labels }) => {
-    const [vehicleMakes, setVehicleMakes] = useState([]);
+    const [selectedMake, setSelectedMake] = useState('');
 
-    useEffect(() => {
-        fetch('http://localhost:8080/api/vehicle')
-        .then((res) => res.json())
-        .then((vehicles) => setVehicleMakes(vehicles))
-        .catch((err) => console.error(err));
-    }, []);
-
-    return vehicleMakes.length ? (
+    return (
         <Fragment>
             <Formik initialValues={ initialState }
                 onSubmit={ (values, actions) => {
@@ -50,7 +58,8 @@ const RequestForm = ({ labels }) => {
                     actions.resetForm();
                 } }
                 validationSchema={ Yup.object().shape({
-                    make: Yup.string().required('Required'),
+                    make: Yup.string().makeSelected()
+                    .required('Required'),
                     model: Yup.string().required('Required'),
                     year: Yup.number().integer()
                     .min(1920)
@@ -61,21 +70,18 @@ const RequestForm = ({ labels }) => {
                     .required('Required'),
                 }) }>
                 {
-                    ({ isSubmitting, handleReset }) => (
+                    ({ isSubmitting, handleReset, setFieldValue }) => (
                         <Fragment>
                             <Form>
-
-                                {/* <FormGroup>
-                                <Label className="input-label" for="make">{labels.make}</Label>
-                                <Field name="make" type="text" component={ CustomInput } />
-                            </FormGroup> */}
                                 <FormGroup>
-                                    <Label className="input-label" for="make">{labels.make}</Label><br />
-                                    <Field component="select" name="make">
-                                        {vehicleMakes.map((vehicleMake) => (
-                                            <option key={ vehicleMake } value={ vehicleMake }>{vehicleMake}</option>
-                                        ))}
-                                    </Field>
+                                    <Label className="input-label" for="make">{labels.make}</Label>
+                                    <div />
+                                    <Field name="make" component={ CustomSelectInput } onChange={ (e) => {
+                                        if (e.target.value !== '--') {
+                                            setSelectedMake(e.target.value);
+                                        }
+                                        setFieldValue('make', e.target.value);
+                                    } } />
                                 </FormGroup>
 
                                 <FormGroup>
@@ -113,7 +119,7 @@ const RequestForm = ({ labels }) => {
                     )
                 }
             </Formik>
-        </Fragment>) : null;
+        </Fragment>);
 };
 
 export default RequestForm;
