@@ -3,10 +3,11 @@ import { Formik, Form, Field } from 'formik';
 import './_request-form.scss';
 import * as Yup from 'yup';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Label, FormGroup } from 'reactstrap';
+import { Button, Label, FormGroup, Input } from 'reactstrap';
 import CustomInput from './CustomInput';
 import CustomMakeSelectInput from './CustomMakeSelectInput';
 import CustomModelSelectInput from './CustomModelSelectInput';
+import CustomYearSelectInput from './CustomYearSelectInput';
 import PropTypes from 'prop-types';
 
 const initialState = {
@@ -32,11 +33,13 @@ Yup.addMethod(Yup.string, 'makeSelected', function () {
 });
 
 const RequestForm = ({ labels }) => {
-    // const [selectedMake, setSelectedMake] = useState('');
+    const [year, setYear] = useState(0);
+    const [make, setMake] = useState('');
     const [modelsForMake, setModelsForMake] = useState([]);
+    const [checked, setChecked] = useState(false);
 
     const handleMakeInputChange = (make) => {
-        fetch(`http://localhost:8080/api/vehicle/${make}`)
+        fetch(`http://localhost:8080/api/vehicle/${make.toLowerCase()}`)
         .then((res) => res.json())
         .then((models) => setModelsForMake(models))
         .catch((err) => console.error(err));
@@ -83,17 +86,30 @@ const RequestForm = ({ labels }) => {
                         <Fragment>
                             <Form>
                                 <FormGroup>
-                                    <Label className="input-label" for="make">{labels.make}</Label>
+                                    <Label className="input-label" for="year">{labels.year}</Label>
                                     <div />
-                                    <Field name="make" component={ CustomMakeSelectInput } onChange={ (e) => {
-                                        if (e.target.value !== '--') {
-                                            handleMakeInputChange(e.target.value);
-                                        }
-                                        setFieldValue('make', e.target.value);
+                                    <Field name="year" component={ CustomYearSelectInput } onChange={ (e) => {
+                                        setYear(e.target.value);
+
+                                        setFieldValue('year', e.target.value);
                                     } } />
                                 </FormGroup>
 
-                                { modelsForMake.length ?
+                                { year > 0 ?
+                                    <FormGroup>
+                                        <Label className="input-label" for="make">{labels.make}</Label>
+                                        <div />
+                                        <Field name="make" component={ CustomMakeSelectInput } onChange={ (e) => {
+                                            if (e.target.value !== '--') {
+                                                handleMakeInputChange(e.target.value);
+                                                setMake(e.target.value);
+                                            }
+                                            setFieldValue('make', e.target.value);
+                                        } } />
+                                    </FormGroup> :
+                                    null}
+
+                                { modelsForMake.length && !checked ?
                                     <FormGroup>
                                         <Label className="input-label" for="model">{labels.model}</Label>
                                         <div />
@@ -101,10 +117,22 @@ const RequestForm = ({ labels }) => {
                                     </FormGroup> :
                                     null}
 
-                                <FormGroup>
-                                    <Label className="input-label" for="year">{labels.year}</Label>
-                                    <Field name="year" type="number" component={ CustomInput } />
-                                </FormGroup>
+                                { make ?
+
+                                    <FormGroup>
+                                        <Label className="input-label offset-1" for="other">
+                                            <Input type="checkbox" checked={ checked } onChange={ (e) => setChecked(e.target.checked) } />
+                                      I can&apos;t find the model I&apos;m looking for.
+                                        </Label>
+                                    </FormGroup> :
+                                    null}
+
+                                { checked ?
+                                    <FormGroup>
+                                        <Label className="input-label" for="model">{labels.model}</Label>
+                                        <Field name="model" type="text" component={ CustomInput } />
+                                    </FormGroup> :
+                                    null}
 
                                 <FormGroup>
                                     <Label className="input-label" for="name">{labels.name}</Label>

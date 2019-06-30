@@ -9,7 +9,7 @@ const CustomModelSelectInput = ({ models, field, form: { touched, errors }, ...p
             { ...props }>
             {models.length ?
                 models.map((model) => (
-                    <option key={ model } value={ model }>{model }</option>
+                    <option key={ model.modelName + model.id } value={ model.modelName }>{model.modelName }</option>
                 )) :
                 null}
         </Input>

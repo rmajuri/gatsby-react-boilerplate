@@ -12,16 +12,14 @@ const CustomMakeSelectInput = ({ field, form: { touched, errors }, ...props }) =
         .catch((err) => console.error(err));
     }, []);
 
-    return vehicleMakes ? (
+    return vehicleMakes.length ? (
         <div>
             <Input type="select" invalid={ !!(touched[field.name] && errors[field.name]) }
                 { ...field }
                 { ...props }>
-                {vehicleMakes ?
-                    vehicleMakes.map((make) => (
-                        <option key={ make } value={ make }>{make }</option>
-                    )) :
-                    null}
+                { vehicleMakes.map((make) => (
+                    <option key={ make.id } value={ make.makeName }>{make.makeName}</option>
+                )) }
             </Input>
             {touched[field.name] && errors[field.name] && <FormFeedback>{errors[field.name]}</FormFeedback> }
         </div>
