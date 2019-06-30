@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Input, FormFeedback } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const CustomSelectInput = ({ makes, field, form: { touched, errors }, ...props }) => {
+const CustomMakeSelectInput = ({ field, form: { touched, errors }, ...props }) => {
     const [vehicleMakes, setVehicleMakes] = useState([]);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const CustomSelectInput = ({ makes, field, form: { touched, errors }, ...props }
                 { ...props }>
                 {vehicleMakes ?
                     vehicleMakes.map((make) => (
-                        <option key={ make } value={ make }>{make}</option>
+                        <option key={ make } value={ make }>{make }</option>
                     )) :
                     null}
             </Input>
@@ -28,10 +28,9 @@ const CustomSelectInput = ({ makes, field, form: { touched, errors }, ...props }
     ) : null;
 };
 
-CustomSelectInput.propTypes = {
+CustomMakeSelectInput.propTypes = {
     field: PropTypes.object,
     form: PropTypes.object,
-    makes: PropTypes.array,
 };
 
-export default CustomSelectInput;
+export default CustomMakeSelectInput;

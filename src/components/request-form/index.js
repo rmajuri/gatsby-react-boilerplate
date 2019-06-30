@@ -5,7 +5,8 @@ import * as Yup from 'yup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Label, FormGroup } from 'reactstrap';
 import CustomInput from './CustomInput';
-import CustomSelectInput from './CustomSelectInput';
+import CustomMakeSelectInput from './CustomMakeSelectInput';
+import CustomModelSelectInput from './CustomModelSelectInput';
 import PropTypes from 'prop-types';
 
 const initialState = {
@@ -31,7 +32,15 @@ Yup.addMethod(Yup.string, 'makeSelected', function () {
 });
 
 const RequestForm = ({ labels }) => {
-    const [selectedMake, setSelectedMake] = useState('');
+    // const [selectedMake, setSelectedMake] = useState('');
+    const [modelsForMake, setModelsForMake] = useState([]);
+
+    const handleMakeInputChange = (make) => {
+        fetch(`http://localhost:8080/api/vehicle/${make}`)
+        .then((res) => res.json())
+        .then((models) => setModelsForMake(models))
+        .catch((err) => console.error(err));
+    };
 
     return (
         <Fragment>
@@ -76,18 +85,21 @@ const RequestForm = ({ labels }) => {
                                 <FormGroup>
                                     <Label className="input-label" for="make">{labels.make}</Label>
                                     <div />
-                                    <Field name="make" component={ CustomSelectInput } onChange={ (e) => {
+                                    <Field name="make" component={ CustomMakeSelectInput } onChange={ (e) => {
                                         if (e.target.value !== '--') {
-                                            setSelectedMake(e.target.value);
+                                            handleMakeInputChange(e.target.value);
                                         }
                                         setFieldValue('make', e.target.value);
                                     } } />
                                 </FormGroup>
 
-                                <FormGroup>
-                                    <Label className="input-label" for="model">{labels.model}</Label>
-                                    <Field name="model" type="text" component={ CustomInput } />
-                                </FormGroup>
+                                { modelsForMake.length ?
+                                    <FormGroup>
+                                        <Label className="input-label" for="model">{labels.model}</Label>
+                                        <div />
+                                        <Field name="model" component={ CustomModelSelectInput } models={ modelsForMake } />
+                                    </FormGroup> :
+                                    null}
 
                                 <FormGroup>
                                     <Label className="input-label" for="year">{labels.year}</Label>
