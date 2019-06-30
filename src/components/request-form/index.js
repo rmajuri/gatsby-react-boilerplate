@@ -63,8 +63,12 @@ const RequestForm = ({ labels }) => {
                         body: JSON.stringify(requestPost),
                     })
                     .then((res) => res.json())
-                    .then((data) => console.log(data))
                     .catch((err) => console.error(err));
+
+                    setYear(0);
+                    setMake('');
+                    setModelsForMake([]);
+                    setChecked(false);
 
                     actions.setSubmitting(false);
                     actions.resetForm();
@@ -89,9 +93,10 @@ const RequestForm = ({ labels }) => {
                                     <Label className="input-label" for="year">{labels.year}</Label>
                                     <div />
                                     <Field name="year" component={ CustomYearSelectInput } onChange={ (e) => {
-                                        setYear(e.target.value);
-
-                                        setFieldValue('year', e.target.value);
+                                        if (e.target.value !== '--') {
+                                            setYear(e.target.value);
+                                            setFieldValue('year', e.target.value);
+                                        }
                                     } } />
                                 </FormGroup>
 
@@ -103,8 +108,8 @@ const RequestForm = ({ labels }) => {
                                             if (e.target.value !== '--') {
                                                 handleMakeInputChange(e.target.value);
                                                 setMake(e.target.value);
+                                                setFieldValue('make', e.target.value);
                                             }
-                                            setFieldValue('make', e.target.value);
                                         } } />
                                     </FormGroup> :
                                     null}
@@ -113,7 +118,11 @@ const RequestForm = ({ labels }) => {
                                     <FormGroup>
                                         <Label className="input-label" for="model">{labels.model}</Label>
                                         <div />
-                                        <Field name="model" component={ CustomModelSelectInput } models={ modelsForMake } />
+                                        <Field name="model" component={ CustomModelSelectInput } models={ modelsForMake } onChange={ (e) => {
+                                            if (e.target.value !== '--') {
+                                                setFieldValue('model', e.target.value);
+                                            }
+                                        } } />
                                     </FormGroup> :
                                     null}
 

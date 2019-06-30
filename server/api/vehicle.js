@@ -31,8 +31,9 @@ router.get('/:makeName', async (req, res, next) => {
 
             return modelA < modelB ? -1 : modelA > modelB ? 1 : 0;
         });
+        const response = [{ id: 'placeholder', modelName: '--' }, ...modelsForMake];
 
-        res.status(201).json(modelsForMake);
+        res.status(201).json(response);
     } catch (error) {
         next(error);
     }

@@ -9,13 +9,15 @@ const CustomYearSelectInput = ({ field, form: { touched, errors }, ...props }) =
         vehicleYears.push(i);
     }
 
+    const years = ['--', ...vehicleYears];
+
     return (
         <div>
             <Input type="select" invalid={ !!(touched[field.name] && errors[field.name]) }
                 { ...field }
                 { ...props }>
                 {
-                    vehicleYears.map((year) => (
+                    years.map((year) => (
                         <option key={ year } value={ year }>{year}</option>
                     )) }
             </Input>

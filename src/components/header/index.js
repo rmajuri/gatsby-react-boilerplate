@@ -11,20 +11,6 @@ const Header = () => (
                         <svg className="header-svg">
                             <use xlinkHref={ `${DigiLogo}#digi` } className="header-svg-use" />
                         </svg>
-                        <nav className="header-nav">
-                            <ul className="header-nav-list">
-                                <li className="header-nav-list-item">
-                                    <a href="#form-section" className="header-nav-list-item-anchor">
-                                        Make Request
-                                    </a>
-                                </li>
-                                <li className="header-nav-list-item">
-                                    <a href="#request-stats" className="header-nav-list-item-anchor">
-                                      Top 20
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>
