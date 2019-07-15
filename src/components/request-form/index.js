@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import './_request-form.scss';
 import * as Yup from 'yup';
@@ -55,6 +55,8 @@ const RequestForm = ({ labels }) => {
                         year: String(values.year),
                     };
 
+                    console.log(requestPost);
+
                     fetch('http://localhost:8080/api/request', {
                         method: 'POST',
                         headers: {
@@ -62,7 +64,6 @@ const RequestForm = ({ labels }) => {
                         },
                         body: JSON.stringify(requestPost),
                     })
-                    .then((res) => res.json())
                     .catch((err) => console.error(err));
 
                     setYear(0);
